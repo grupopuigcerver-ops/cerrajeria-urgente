@@ -1,285 +1,509 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Grupo Puigcerver – Cerrajero Urgente 24 h en Rubí, Sant Cugat y Terrassa</title>
-    <meta name="description" content="Cerrajería urgente 24 horas en Rubí, Sant Cugat y Terrassa. Apertura de puertas sin daños, cambio de cerraduras y soluciones de seguridad. Llámanos al 631 964 656." />
-    <style>
-        :root {
-            --color-primary: #003366;
-            --color-primary-dark: #00254d;
-            --color-accent: #ff9900;
-            --color-accent-hover: #e68a00;
-            --color-success: #25d366;
-            --color-success-hover: #1ebe5d;
-            --color-background: #f5f6fa;
-            --color-light: #ffffff;
-            --color-light-alt: #f7f9fc;
-            --color-gray-light: #f2f4f8;
-            --text-color: #222;
-            --text-light: #d0d8e1;
-        }
-        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;line-height:1.6;color:var(--text-color);background-color:var(--color-background);overflow-x:hidden}
-        a{text-decoration:none;color:inherit}
-        .container{width:100%;max-width:1200px;margin:0 auto;padding:0 20px}
-        header{background-color:var(--color-primary);color:var(--color-light);padding:12px 0;position:sticky;top:0;z-index:1000;box-shadow:0 2px 4px rgba(0,0,0,.1)}
-        header .logo{font-size:1.35rem;font-weight:700;line-height:1.1;max-width:100%}
-        header .contact-links{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
-        .btn-inline{display:inline-flex;align-items:center;justify-content:center;padding:9px 14px;border-radius:8px;font-weight:700;font-size:.95rem;transition:background .3s ease,box-shadow .3s ease;box-shadow:0 2px 4px rgba(0,0,0,.15);cursor:pointer;white-space:nowrap}
-        header .btn-inline.call{white-space:normal;text-align:center}
-        header .contact-links a.call{background:linear-gradient(135deg,var(--color-accent),var(--color-accent-hover));color:var(--color-primary)}
-        header .contact-links a.whatsapp{background:linear-gradient(135deg,var(--color-success),var(--color-success-hover));color:var(--color-light)}
-        header .contact-links a:hover{box-shadow:0 4px 8px rgba(0,0,0,.2)}
-        header .row{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-        .hero{background:linear-gradient(135deg,var(--color-primary),var(--color-primary-dark));color:var(--color-light);padding:90px 0 70px;position:relative;overflow:hidden}
-        .hero::after{content:"";position:absolute;top:-25%;right:-35%;width:120%;height:200%;background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.08),rgba(255,255,255,0) 70%);transform:rotate(25deg)}
-        .hero-content{position:relative;z-index:2;text-align:center;max-width:720px;margin:0 auto}
-        .hero h1{font-size:2.2rem;margin-bottom:1rem;line-height:1.3}
-        .hero p{font-size:1.1rem;margin-bottom:2.2rem;color:var(--text-light)}
-        .hero .buttons{display:flex;justify-content:center;gap:18px;flex-wrap:wrap}
-        .btn-primary{display:inline-flex;align-items:center;justify-content:center;padding:14px 24px;border-radius:8px;font-weight:600;font-size:1rem;text-align:center;transition:background .3s ease,box-shadow .3s ease,transform .1s ease;box-shadow:0 4px 8px rgba(0,0,0,.15);position:relative}
-        .btn-primary.call{background:linear-gradient(135deg,var(--color-accent),var(--color-accent-hover));color:var(--color-primary)}
-        .btn-primary.whatsapp{background:linear-gradient(135deg,var(--color-success),var(--color-success-hover));color:var(--color-light)}
-        .btn-primary:hover{transform:translateY(-2px);box-shadow:0 6px 12px rgba(0,0,0,.2)}
-        .trust-section{background-color:var(--color-light);padding:70px 0}
-        .trust-section h2{text-align:center;margin-bottom:50px;color:var(--color-primary);font-size:1.7rem}
-        .trust-cards{display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between}
-        .trust-card{background-color:var(--color-light-alt);border-radius:12px;padding:24px;flex:1 1 260px;display:flex;align-items:flex-start;gap:18px;box-shadow:0 2px 6px rgba(0,0,0,.05)}
-        .trust-card .icon{font-size:2.2rem;color:var(--color-accent)}
-        .trust-card h3{font-size:1.25rem;margin-bottom:.5rem}
-        .trust-card p{font-size:.95rem;color:#555}
-        .problems{background-color:var(--color-gray-light);padding:70px 0}
-        .problems h2{text-align:center;margin-bottom:50px;color:var(--color-primary);font-size:1.7rem}
-        .problem-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px}
-        .problem-item{background-color:var(--color-light);border-radius:12px;padding:24px;box-shadow:0 2px 6px rgba(0,0,0,.05)}
-        .problem-item .emoji{font-size:2rem;margin-bottom:10px}
-        .problem-item h4{margin-bottom:.5rem;font-size:1.1rem;color:var(--color-primary)}
-        .problem-item p{font-size:.95rem;color:#555}
-        .services{background-color:var(--color-light);padding:70px 0}
-        .services h2{text-align:center;margin-bottom:50px;color:var(--color-primary);font-size:1.7rem}
-        .services-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
-        .service-item{background-color:var(--color-light-alt);border-radius:12px;padding:24px;box-shadow:0 2px 6px rgba(0,0,0,.05)}
-        .service-item h4{margin-bottom:.5rem;font-size:1.15rem;color:var(--color-primary)}
-        .service-item p{font-size:.95rem;color:#555}
-        .testimonials{background-color:var(--color-gray-light);padding:70px 0}
-        .testimonials h2{text-align:center;margin-bottom:50px;color:var(--color-primary);font-size:1.7rem}
-        .testimonial-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
-        .testimonial{background-color:var(--color-light);border-radius:12px;padding:24px;box-shadow:0 2px 6px rgba(0,0,0,.05)}
-        .testimonial p{font-style:italic;margin-bottom:10px;color:#333}
-        .testimonial .author{font-weight:600;color:var(--color-primary)}
-        .areas{background-color:var(--color-light);padding:70px 0}
-        .areas h2{text-align:center;margin-bottom:20px;color:var(--color-primary);font-size:1.7rem}
-        .areas p{text-align:center;margin-bottom:30px;color:#555}
-        .areas ul{list-style:none;columns:2;max-width:650px;margin:0 auto}
-        .areas li{margin-bottom:10px;padding-left:1.5em;position:relative;font-size:.95rem}
-        .areas li::before{content:"📍";position:absolute;left:0}
-        .faq{background-color:var(--color-gray-light);padding:70px 0}
-        .faq h2{text-align:center;margin-bottom:50px;color:var(--color-primary);font-size:1.7rem}
-        .faq-item{margin-bottom:24px}
-        .faq-item h4{font-size:1.1rem;margin-bottom:6px;color:var(--color-primary)}
-        .faq-item p{color:#555;font-size:.95rem}
-        .final-cta{background-color:var(--color-primary);color:var(--color-light);padding:50px 0;text-align:center}
-        .final-cta h2{font-size:1.6rem;margin-bottom:1rem}
-        .final-cta p{margin-bottom:1.8rem;color:var(--text-light);font-size:1rem}
-        .final-cta .buttons{justify-content:center}
-        footer{background-color:var(--color-primary-dark);color:var(--color-light);padding:22px 0;text-align:center;font-size:.85rem}
-        @media (min-width:768px){.hero h1{font-size:2.6rem}.hero p{font-size:1.25rem}.btn-primary{font-size:1.1rem}.trust-card{flex:1 1 calc(50% - 20px)}}
-        @media (max-width:600px){
-            header{position:relative}
-            header .row{flex-direction:column;align-items:flex-start}
-            header .logo{font-size:1.65rem}
-            header .contact-links{width:100%;display:grid;grid-template-columns:1fr 1fr;gap:10px}
-            .btn-inline{width:100%;font-size:.95rem;padding:12px 10px;text-align:center}
-            .hero{padding:55px 0 55px}
-            .hero h1{font-size:2.15rem;line-height:1.18}
-            .hero p{font-size:1.05rem;line-height:1.55}
-            .hero .buttons,.final-cta .buttons{flex-direction:column;width:100%}
-            .btn-primary{width:100%;max-width:360px;margin:0 auto}
-            .areas ul{columns:1}
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cerrajero urgente en Rubí, Sant Cugat y Terrassa | Grupo Puigcerver</title>
+<meta name="description" content="Cerrajería urgente en Rubí, Sant Cugat, Terrassa y alrededores. Apertura de puertas, cambio de cerraduras, bombines y soluciones de seguridad. Llama al 631 964 656.">
+
+<style>
+:root{
+--azul:#0d2f4f;
+--azul-oscuro:#071d32;
+--amarillo:#f6b21a;
+--verde:#25d366;
+--fondo:#f4f6f8;
+--blanco:#fff;
+--texto:#1f2933;
+--gris:#5f6b76;
+--borde:#dde3ea;
+}
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
+body{
+font-family:Arial,Helvetica,sans-serif;
+background:var(--fondo);
+color:var(--texto);
+line-height:1.6;
+overflow-x:hidden;
+}
+
+a{
+text-decoration:none;
+color:inherit;
+}
+
+.container{
+width:100%;
+max-width:1120px;
+margin:auto;
+padding:0 18px;
+}
+
+header{
+background:var(--azul-oscuro);
+color:white;
+padding:14px 0;
+}
+
+.header-row{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:14px;
+flex-wrap:wrap;
+}
+
+.logo{
+font-size:1.35rem;
+font-weight:800;
+letter-spacing:.2px;
+}
+
+.header-actions{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+}
+
+.btn{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+border-radius:10px;
+font-weight:800;
+padding:13px 18px;
+font-size:1rem;
+min-height:48px;
+box-shadow:0 3px 10px rgba(0,0,0,.16);
+}
+
+.btn-call{
+background:var(--amarillo);
+color:#17212b;
+}
+
+.btn-whatsapp{
+background:var(--verde);
+color:white;
+}
+
+.hero{
+background:linear-gradient(135deg,var(--azul),var(--azul-oscuro));
+color:white;
+padding:64px 0 56px;
+}
+
+.hero-box{
+max-width:780px;
+}
+
+.kicker{
+display:inline-block;
+background:rgba(255,255,255,.12);
+border:1px solid rgba(255,255,255,.18);
+padding:7px 12px;
+border-radius:999px;
+font-size:.9rem;
+margin-bottom:16px;
+}
+
+h1{
+font-size:2.25rem;
+line-height:1.15;
+margin-bottom:18px;
+}
+
+.hero p{
+font-size:1.12rem;
+color:#dbe5ee;
+margin-bottom:24px;
+max-width:700px;
+}
+
+.hero-actions{
+display:flex;
+gap:14px;
+flex-wrap:wrap;
+}
+
+section{
+padding:54px 0;
+}
+
+.section-white{
+background:white;
+}
+
+h2{
+font-size:1.7rem;
+line-height:1.25;
+margin-bottom:18px;
+color:var(--azul);
+}
+
+.intro{
+font-size:1.05rem;
+color:var(--gris);
+max-width:760px;
+margin-bottom:28px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:18px;
+}
+
+.card{
+background:white;
+border:1px solid var(--borde);
+border-radius:16px;
+padding:22px;
+box-shadow:0 4px 14px rgba(0,0,0,.05);
+}
+
+.section-white .card{
+background:#f8fafc;
+}
+
+.card h3{
+font-size:1.15rem;
+color:var(--azul);
+margin-bottom:8px;
+}
+
+.card p{
+color:var(--gris);
+font-size:.98rem;
+}
+
+.list{
+display:grid;
+gap:12px;
+margin-top:18px;
+}
+
+.list-item{
+background:white;
+border:1px solid var(--borde);
+border-radius:14px;
+padding:18px;
+}
+
+.list-item strong{
+display:block;
+color:var(--azul);
+margin-bottom:4px;
+}
+
+.list-item span{
+color:var(--gris);
+}
+
+.notice{
+background:#fff8e6;
+border:1px solid #f3d28a;
+border-radius:16px;
+padding:20px;
+margin-top:24px;
+color:#4b3a11;
+}
+
+.areas{
+background:var(--azul);
+color:white;
+}
+
+.areas h2{
+color:white;
+}
+
+.areas p{
+color:#dbe5ee;
+}
+
+.areas-list{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+margin-top:20px;
+}
+
+.area-tag{
+background:rgba(255,255,255,.12);
+border:1px solid rgba(255,255,255,.18);
+padding:9px 13px;
+border-radius:999px;
+font-weight:700;
+}
+
+.faq-item{
+background:white;
+border:1px solid var(--borde);
+border-radius:14px;
+padding:20px;
+margin-bottom:14px;
+}
+
+.faq-item h3{
+font-size:1.08rem;
+color:var(--azul);
+margin-bottom:8px;
+}
+
+.faq-item p{
+color:var(--gris);
+}
+
+.final-cta{
+background:var(--azul-oscuro);
+color:white;
+text-align:center;
+padding:50px 0;
+}
+
+.final-cta h2{
+color:white;
+}
+
+.final-cta p{
+color:#dbe5ee;
+max-width:680px;
+margin:0 auto 24px;
+}
+
+.final-actions{
+display:flex;
+justify-content:center;
+gap:14px;
+flex-wrap:wrap;
+}
+
+footer{
+background:#061727;
+color:#cdd6df;
+text-align:center;
+padding:24px 16px;
+font-size:.9rem;
+}
+
+@media(max-width:700px){
+.header-row{
+align-items:flex-start;
+}
+
+.header-actions{
+width:100%;
+display:grid;
+grid-template-columns:1fr 1fr;
+}
+
+.btn{
+width:100%;
+padding:13px 10px;
+font-size:.95rem;
+}
+
+.hero{
+padding:46px 0;
+}
+
+h1{
+font-size:2rem;
+}
+
+.hero p{
+font-size:1.04rem;
+}
+
+.hero-actions{
+display:grid;
+grid-template-columns:1fr;
+}
+
+section{
+padding:42px 0;
+}
+
+.card{
+padding:20px;
+}
+}
+</style>
 </head>
+
 <body>
-    <header>
-        <div class="container row">
-            <div class="logo">Grupo Puigcerver</div>
-            <div class="contact-links">
-                <a href="tel:+34631964656" class="btn-inline call">Llamar<br>631 964 656</a>
-                <a href="https://wa.me/34631964656?text=Hola%2C%20Grupo%20Puigcerver%20-%20necesito%20un%20cerrajero%20urgente." class="btn-inline whatsapp">WhatsApp</a>
-            </div>
-        </div>
-    </header>
-    <section class="hero">
-        <div class="container hero-content">
-            <h1>Su cerrajero urgente de confianza en Rubí, Sant Cugat y Terrassa</h1>
-            <p>Servicios profesionales de apertura de puertas, cambio de cerraduras y sistemas de seguridad. Disponibles las 24 horas, llegamos rápidamente allá donde nos necesites.</p>
-            <div class="buttons">
-                <a href="tel:+34631964656" class="btn-primary call">Llamar Ahora</a>
-                <a href="https://wa.me/34631964656?text=Hola%2C%20necesito%20un%20cerrajero%20urgente%20en%20Rub%C3%AD%2C%20Sant%20Cugat%20o%20Terrassa." class="btn-primary whatsapp">Enviar WhatsApp</a>
-            </div>
-        </div>
-    </section>
-    <section class="trust-section">
-        <div class="container">
-            <h2>¿Por qué confiar en nosotros?</h2>
-            <div class="trust-cards">
-                <div class="trust-card">
-                    <div class="icon">⏱️</div>
-                    <div>
-                        <h3>Llegada en minutos</h3>
-                        <p>Estamos situados en el Vallès, lo que nos permite llegar a su domicilio o negocio en menos de 30 minutos para resolver cualquier urgencia.</p>
-                    </div>
-                </div>
-                <div class="trust-card">
-                    <div class="icon">🔧</div>
-                    <div>
-                        <h3>Aperturas sin daños</h3>
-                        <p>Nuestros técnicos utilizan herramientas avanzadas para abrir puertas sin estropear la cerradura ni el marco. Su puerta quedará como nueva.</p>
-                    </div>
-                </div>
-                <div class="trust-card">
-                    <div class="icon">💶</div>
-                    <div>
-                        <h3>Presupuestos claros</h3>
-                        <p>Le ofrecemos un precio cerrado antes de empezar. Sin sorpresas ni suplementos de última hora. Transparencia absoluta.</p>
-                    </div>
-                </div>
-                <div class="trust-card">
-                    <div class="icon">🎓</div>
-                    <div>
-                        <h3>Profesionales acreditados</h3>
-                        <p>Contamos con cerrajeros titulados con años de experiencia en el sector. Elegimos las mejores marcas y seguimos en constante formación.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="problems">
-        <div class="container">
-            <h2>¿Qué urgencia necesita resolver?</h2>
-            <div class="problem-list">
-                <div class="problem-item">
-                    <div class="emoji">🔑</div>
-                    <h4>Olvidó las llaves</h4>
-                    <p>Salir de casa sin llaves es más frecuente de lo que parece. No intente forzar la cerradura: llámenos y la abriremos sin dañarla.</p>
-                </div>
-                <div class="problem-item">
-                    <div class="emoji">🔐</div>
-                    <h4>Cerradura atascada</h4>
-                    <p>El desgaste o la suciedad pueden provocar que el cilindro no gire. Diagnosticamos la avería y la reparamos o sustituimos al instante.</p>
-                </div>
-                <div class="problem-item">
-                    <div class="emoji">🚪</div>
-                    <h4>Puerta bloqueada</h4>
-                    <p>Una puerta hinchada por humedad o un fallo en la manilla pueden dejarlo fuera. Contamos con las herramientas necesarias para solucionar cualquier bloqueo.</p>
-                </div>
-                <div class="problem-item">
-                    <div class="emoji">🗝️</div>
-                    <h4>Llave rota</h4>
-                    <p>Cuando la llave se parte dentro de la cerradura no intente sacarla con objetos improvisados. Nosotros la extraemos y reparamos la cerradura.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="services">
-        <div class="container">
-            <h2>Servicios de cerrajería que ofrecemos</h2>
-            <div class="services-list">
-                <div class="service-item">
-                    <h4>Apertura de puertas</h4>
-                    <p>Servicio urgente para viviendas, comercios y oficinas. Abrimos puertas blindadas, acorazadas y de alta seguridad sin daños.</p>
-                </div>
-                <div class="service-item">
-                    <h4>Cambio de cerraduras</h4>
-                    <p>Sustituimos cerraduras desgastadas o inseguras por modelos antibumping y antitaladro. Le asesoramos en la mejor opción para su propiedad.</p>
-                </div>
-                <div class="service-item">
-                    <h4>Instalación de bombines</h4>
-                    <p>Actualizamos su bombín por uno de seguridad con tarjeta de propiedad. Recomendable después de una mudanza o pérdida de llaves.</p>
-                </div>
-                <div class="service-item">
-                    <h4>Sistemas de seguridad</h4>
-                    <p>Instalamos cerrojos electrónicos, cerraduras inteligentes y escudos protectores para reforzar la seguridad de su hogar o negocio.</p>
-                </div>
-                <div class="service-item">
-                    <h4>Copia de llaves</h4>
-                    <p>Realizamos duplicados de llaves estándar y de seguridad con maquinaria de precisión para un ajuste perfecto.</p>
-                </div>
-                <div class="service-item">
-                    <h4>Persianas y cierres metálicos</h4>
-                    <p>Reparación e instalación de persianas metálicas para locales comerciales, incluyendo motorizar sistemas existentes.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="testimonials">
-        <div class="container">
-            <h2>Opiniones de clientes reales</h2>
-            <div class="testimonial-list">
-                <div class="testimonial">
-                    <p>"Les llamé a las dos de la madrugada porque no podía entrar en casa. Llegaron en 25 minutos y abrieron la puerta sin romper nada. Servicio impecable."</p>
-                    <div class="author">– Marta G. (Sant Cugat)</div>
-                </div>
-                <div class="testimonial">
-                    <p>"Cambiar la cerradura tras una pérdida de llaves me tenía preocupado. Me asesoraron sobre los bombines más seguros y lo dejaron instalado en menos de una hora."</p>
-                    <div class="author">– Jordi R. (Rubí)</div>
-                </div>
-                <div class="testimonial">
-                    <p>"Profesionales y honestos. Me dieron un presupuesto antes de venir y fue exactamente lo que pagué. Muy recomendables para cualquier emergencia."</p>
-                    <div class="author">– Laura T. (Terrassa)</div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="areas">
-        <div class="container">
-            <h2>Zonas que cubrimos</h2>
-            <p>Nuestro equipo se desplaza principalmente por Rubí, Sant Cugat, Terrassa y los alrededores. Si reside en otra localidad cercana no dude en consultarnos.</p>
-            <ul>
-                <li>Rubí – barrios de Can Fatjó, El Pinar, Les Torres…</li>
-                <li>Sant Cugat del Vallès – Centro, Valldoreix, Mira-sol, La Floresta</li>
-                <li>Terrassa – Centre, Sant Pere, Ca n’Aurell, Vallparadís</li>
-                <li>Cerdanyola del Vallès, Sabadell, Matadepera, Castellbisbal</li>
-            </ul>
-        </div>
-    </section>
-    <section class="faq">
-        <div class="container">
-            <h2>Preguntas frecuentes</h2>
-            <div class="faq-item">
-                <h4>¿Cuánto tardáis en llegar?</h4>
-                <p>Nuestro tiempo medio de respuesta es de 20 a 30 minutos, dependiendo del tráfico y de su ubicación exacta dentro del área de servicio.</p>
-            </div>
-            <div class="faq-item">
-                <h4>¿Cómo se calcula el precio?</h4>
-                <p>Le preguntaremos por teléfono los detalles básicos de su urgencia para poder darle un presupuesto cerrado. El desplazamiento y la mano de obra están incluidos.</p>
-            </div>
-            <div class="faq-item">
-                <h4>¿Trabajáis noches y festivos?</h4>
-                <p>Sí. Nuestro servicio está disponible las 24 horas todos los días del año, incluyendo fines de semana y festivos.</p>
-            </div>
-            <div class="faq-item">
-                <h4>¿Debo cambiar mi cerradura después de perder una llave?</h4>
-                <p>Recomendamos cambiar el bombín para garantizar su seguridad, especialmente si no sabe quién podría tener acceso a sus llaves. Utilizamos bombines de alta seguridad con tarjeta de propiedad.</p>
-            </div>
-        </div>
-    </section>
-    <section class="final-cta">
-        <div class="container">
-            <h2>¿Necesita ayuda ahora mismo?</h2>
-            <p>No importa la hora que sea ni dónde se encuentre. Grupo Puigcerver está siempre listo para asistirle en sus urgencias de cerrajería.</p>
-            <div class="buttons" style="display:flex;gap:18px;flex-wrap:wrap;">
-                <a href="tel:+34631964656" class="btn-primary call">Llamar al 631 964 656</a>
-                <a href="https://wa.me/34631964656?text=Hola%2C%20necesito%20un%20cerrajero%20urgente." class="btn-primary whatsapp">WhatsApp inmediato</a>
-            </div>
-        </div>
-    </section>
-    <footer>
-        <p>© 2026 Grupo Puigcerver – Cerrajería Urgente en Rubí, Sant Cugat, Terrassa y alrededores.</p>
-        <p>Todos los derechos reservados. Diseño y desarrollo propios.</p>
-    </footer>
+
+<header>
+<div class="container header-row">
+<div class="logo">Grupo Puigcerver</div>
+<div class="header-actions">
+<a class="btn btn-call" href="tel:+34631964656">Llamar 631 964 656</a>
+<a class="btn btn-whatsapp" href="https://api.whatsapp.com/send?phone=34631964656">WhatsApp</a>
+</div>
+</div>
+</header>
+
+<section class="hero">
+<div class="container">
+<div class="hero-box">
+<div class="kicker">Cerrajería en Rubí, Sant Cugat, Terrassa y alrededores</div>
+<h1>Cerrajero para aperturas, cerraduras y urgencias reales</h1>
+<p>Atendemos aperturas de puertas, cambios de bombín, cerraduras bloqueadas y problemas de acceso en viviendas, locales y vehículos. Trabajo directo, explicación clara y solución adaptada a cada caso.</p>
+<div class="hero-actions">
+<a class="btn btn-call" href="tel:+34631964656">Llamar ahora</a>
+<a class="btn btn-whatsapp" href="https://api.whatsapp.com/send?phone=34631964656">Enviar WhatsApp</a>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section-white">
+<div class="container">
+<h2>Servicio de cerrajería directo y sin vueltas</h2>
+<p class="intro">Grupo Puigcerver trabaja en cerrajería, automatismos, persianas y trabajos metálicos. En cerrajería atendemos tanto urgencias como cambios planificados de cerraduras, bombines y elementos de seguridad.</p>
+
+<div class="grid">
+<div class="card">
+<h3>Apertura de puertas</h3>
+<p>Puertas cerradas, llaves olvidadas, cerraduras bloqueadas o accesos que no responden correctamente.</p>
+</div>
+<div class="card">
+<h3>Cambio de bombines</h3>
+<p>Sustitución de bombines por pérdida de llaves, cambio de vivienda, desgaste o mejora de seguridad.</p>
+</div>
+<div class="card">
+<h3>Cerraduras y cerrojos</h3>
+<p>Revisión, sustitución e instalación de cerraduras, cerrojos y elementos de refuerzo según la puerta.</p>
+</div>
+<div class="card">
+<h3>Apertura de vehículos</h3>
+<p>Casos en los que las llaves quedan dentro del coche o existe un problema de acceso al vehículo.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="container">
+<h2>Problemas habituales que revisamos</h2>
+<p class="intro">No todas las puertas se abren igual y no todas las cerraduras se deben cambiar. Primero se valora el problema y se explica la opción más razonable.</p>
+
+<div class="list">
+<div class="list-item">
+<strong>La llave gira pero la puerta no abre</strong>
+<span>Puede ser fallo del mecanismo, desgaste interno o problema en el resbalón.</span>
+</div>
+<div class="list-item">
+<strong>La llave se ha partido dentro</strong>
+<span>Conviene no forzar con herramientas improvisadas para evitar dañar más el bombín.</span>
+</div>
+<div class="list-item">
+<strong>Cerradura dura o bloqueada</strong>
+<span>Se revisa si puede recuperarse o si merece más la pena sustituirla.</span>
+</div>
+<div class="list-item">
+<strong>Llaves perdidas o cambio de inquilino</strong>
+<span>En muchos casos lo más práctico es cambiar el bombín y conservar la cerradura si está bien.</span>
+</div>
+</div>
+
+<div class="notice">
+Antes de desplazarnos intentamos entender el problema por teléfono o WhatsApp. Una foto de la puerta, cerradura o bombín ayuda mucho a valorar mejor el caso.
+</div>
+</div>
+</section>
+
+<section class="section-white">
+<div class="container">
+<h2>Cómo trabajamos</h2>
+
+<div class="grid">
+<div class="card">
+<h3>1. Nos explicas el caso</h3>
+<p>Ubicación, tipo de puerta, qué ocurre y si tienes alguna foto o vídeo del problema.</p>
+</div>
+<div class="card">
+<h3>2. Valoramos la intervención</h3>
+<p>Te indicamos si parece una apertura, cambio de bombín, reparación o sustitución completa.</p>
+</div>
+<div class="card">
+<h3>3. Se realiza el trabajo</h3>
+<p>Se intenta resolver de forma limpia y proporcional, evitando cambiar piezas si no hace falta.</p>
+</div>
+<div class="card">
+<h3>4. Revisión final</h3>
+<p>Comprobamos que la puerta abre, cierra y trabaja correctamente antes de dar el servicio por terminado.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="areas">
+<div class="container">
+<h2>Zonas de trabajo</h2>
+<p>Trabajamos principalmente en el Vallès y alrededores. La disponibilidad depende del horario, distancia y tipo de urgencia.</p>
+<div class="areas-list">
+<span class="area-tag">Rubí</span>
+<span class="area-tag">Sant Cugat</span>
+<span class="area-tag">Terrassa</span>
+<span class="area-tag">Valldoreix</span>
+<span class="area-tag">Cerdanyola</span>
+<span class="area-tag">Castellbisbal</span>
+<span class="area-tag">Sabadell</span>
+<span class="area-tag">Alrededores</span>
+</div>
+</div>
+</section>
+
+<section>
+<div class="container">
+<h2>Preguntas frecuentes</h2>
+
+<div class="faq-item">
+<h3>¿Se puede abrir una puerta sin romper?</h3>
+<p>Depende del tipo de puerta, cerradura y situación. En muchos casos se puede abrir sin daños, pero no es algo que se deba prometer sin ver el caso.</p>
+</div>
+
+<div class="faq-item">
+<h3>¿Trabajáis urgencias?</h3>
+<p>Sí, atendemos urgencias según disponibilidad. Lo mejor es llamar directamente para valorar si podemos desplazarnos en ese momento.</p>
+</div>
+
+<div class="faq-item">
+<h3>¿Es mejor cambiar cerradura o solo bombín?</h3>
+<p>Si la cerradura está en buen estado, muchas veces basta con cambiar el bombín. Si el mecanismo está dañado o es inseguro, puede interesar cambiar más piezas.</p>
+</div>
+
+<div class="faq-item">
+<h3>¿Puedo enviar fotos por WhatsApp?</h3>
+<p>Sí. Es lo más práctico. Una foto de la puerta, del bombín o de la cerradura ayuda a entender mejor el trabajo antes de ir.</p>
+</div>
+</div>
+</section>
+
+<section class="final-cta">
+<div class="container">
+<h2>¿Necesitas un cerrajero?</h2>
+<p>Llama o envía un WhatsApp con una foto de la puerta o cerradura. Te diremos qué puede estar pasando y cómo podemos ayudarte.</p>
+<div class="final-actions">
+<a class="btn btn-call" href="tel:+34631964656">Llamar al 631 964 656</a>
+<a class="btn btn-whatsapp" href="https://api.whatsapp.com/send?phone=34631964656">Enviar WhatsApp</a>
+</div>
+</div>
+</section>
+
+<footer>
+<p>Grupo Puigcerver · Cerrajería, automatismos, persianas y trabajos metálicos</p>
+<p>Rubí, Sant Cugat, Terrassa y alrededores</p>
+</footer>
+
 </body>
 </html>
